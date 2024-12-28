@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 300px;
+            height: 100vh;
+            background-color: #34495e;
+            border-radius: 0 20px 20px 0;
+            padding: 20px;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.3s ease;
+            color: white;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .sidebar.visible {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            margin-bottom: 30px;
+            background-color: #2c3e50;
+            border-radius: 10px;
+        }
+
+        .sidebar-text {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background-color: #2c3e50;
+            border-radius: 10px;
+            font-size: 18px;
+            margin: 10px 0;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .sidebar-text:hover {
+            background-color: #3498db;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .sidebar-logo {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .sidebar-text h2 {
+            font-size: 16px;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .openSidebar-btn {
+            position: fixed;
+            left: 20px;
+            top: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 30%;
+            background-color: #34495e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .openSidebar-btn img {
+            width: 40px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="openSidebar-btn" id="openSidebar-btn">
+        <img src="sidebar-out.png" alt="Open Menu" class="sidebar-logo" onclick="openSidebar()">
+    </div>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">    
+            <img src="logo.png" alt="Logo" class="logo">
+            <h1>Sidebar</h1>
+            <img src="sidebar-in.png" alt="Close Menu" class="sidebar-logo" onclick="closeSidebar()">
+        </div>
+        <div class="container">
+            <div class="sidebar-text"><h2>Dashboard</h2></div>
+            <div class="sidebar-text"><h2>Projects</h2></div>
+            <div class="sidebar-text"><h2>Tasks</h2></div>
+            <div class="sidebar-text"><h2>Reports</h2></div>
+            <div class="sidebar-text"><h2>Settings</h2></div>
+            <div class="sidebar-text"><h2>Logout</h2></div>
+            <div class="sidebar-text"><h2>Help Center</h2></div>
+        </div>
+    </div>
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const openSidebarBtn = document.getElementById('openSidebar-btn');
+
+        function openSidebar() {
+            sidebar.classList.add('visible');
+        }
+
+        function closeSidebar() {
+            sidebar.classList.remove('visible');
+        }
+
+    </script>
+</body>
+</html>
